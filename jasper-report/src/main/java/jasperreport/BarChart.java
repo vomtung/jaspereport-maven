@@ -136,7 +136,7 @@ public class BarChart {
 	 */
 	public void test() throws JRException
 	{
-		saveToImg();
+		saveToImg(0);
 		pdf();
 		/*xmlEmbed();
 		xml();
@@ -171,11 +171,11 @@ public class BarChart {
 	 * vominhtung
 	 */
 	 
-	public void saveToImg() throws JRException
+	public void saveToImg(int page) throws JRException
 	{
 		System.out.println("PrintImg are called");
 		long start = System.currentTimeMillis();
-		Image image=JasperPrintManager.printPageToImage(this.jprintSrcFile,1, 1);
+		Image image=JasperPrintManager.printPageToImage(this.jprintSrcFile,page, 1);
 		
 		System.err.println("PrintImging time : " + (System.currentTimeMillis() - start));
 		BufferedImage bufferedImage = (BufferedImage) image;

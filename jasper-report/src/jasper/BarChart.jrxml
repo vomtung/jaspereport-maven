@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version last-->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ImagesReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="37794ba7-6836-456d-8547-ccf2dcebd386">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BarChart" language="groovy" pageWidth="600" pageHeight="400" columnWidth="560" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="37794ba7-6836-456d-8547-ccf2dcebd386">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
 	</queryString>
 	<field name="subjectName" class="java.lang.String"/>
 	<field name="xAxis" class="java.lang.String"/>
 	<field name="yAxis" class="java.lang.Integer"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<variable name="countNumber" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[Boolean.TRUE]]></variableExpression>
+	</variable>
 	<title>
-		<band height="79" splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="391" splitType="Stretch">
+		<band height="360" splitType="Stretch">
 			<barChart>
 				<chart evaluationTime="Report">
-					<reportElement x="40" y="-120" width="440" height="380" uuid="ffabb286-765c-435e-bcd2-1eda80f28060"/>
-					<chartTitle/>
+					<reportElement key="" isPrintRepeatedValues="false" x="-20" y="-20" width="570" height="370" uuid="13024f8c-c942-4aab-8c4d-d5daaab28e10">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<chartTitle position="Bottom">
+						<titleExpression><![CDATA["Number paticipants per branch per iteration"]]></titleExpression>
+					</chartTitle>
 					<chartSubtitle/>
-					<chartLegend/>
+					<chartLegend position="Right"/>
 				</chart>
 				<categoryDataset>
 					<categorySeries>
 						<seriesExpression><![CDATA[$F{subjectName}]]></seriesExpression>
 						<categoryExpression><![CDATA[$F{xAxis}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{yAxis}]]></valueExpression>
+						<labelExpression><![CDATA["12"]]></labelExpression>
 					</categorySeries>
 				</categoryDataset>
 				<barPlot>
@@ -48,14 +56,5 @@
 				</barPlot>
 			</barChart>
 		</band>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
+	</title>
 </jasperReport>
