@@ -23,7 +23,7 @@
 	<title>
 		<band height="360" splitType="Stretch">
 			<barChart>
-				<chart evaluationTime="Report">
+				<chart evaluationTime="Report" customizerClass="jasperreport.BarChartCustomizer">
 					<reportElement key="" isPrintRepeatedValues="false" x="-20" y="-20" width="570" height="370" uuid="5212c4b5-cead-45ba-80ed-11a6e29ad93b">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
