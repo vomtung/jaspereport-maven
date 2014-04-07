@@ -29,16 +29,16 @@ import net.sf.jasperreports.engine.export.ooxml.JRPptxExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 
-public class MyJasperFactory {
+public class StackedPercentBar {
 	private String jasperSrcFile;
 	private String jprintSrcFile;
 	private String sourceFileName;
-	public MyJasperFactory(String sourceFileName) {
+	public StackedPercentBar(String sourceFileName) {
 		super();
 		this.sourceFileName = sourceFileName;
 	}
 
-	public MyJasperFactory(String jasperSrcFile, String jprintSrcFile) {
+	public StackedPercentBar(String jasperSrcFile, String jprintSrcFile) {
 		super();
 		this.jasperSrcFile = jasperSrcFile;
 		this.jprintSrcFile = jprintSrcFile;
@@ -84,25 +84,25 @@ public class MyJasperFactory {
 		   public ArrayList initDataList() {
 		      ArrayList chartComponentList = new ArrayList();
 
-		      chartComponentList.add(new ChartComponent("Iterraction 1","New Zealand - Finance -AR Clerk",1));
-		      chartComponentList.add(new ChartComponent("Iterraction 2","New Zealand - Finance -AR Clerk",4));
-		      chartComponentList.add(new ChartComponent("Iterraction 3","New Zealand - Finance -AR Clerk",3));
-		      chartComponentList.add(new ChartComponent("Iterraction 4","New Zealand - Finance -AR Clerk",2));
+		      chartComponentList.add(new ChartComponent("Iterraction 1","New Zealand - Finance -AR Clerk",10));
+		      chartComponentList.add(new ChartComponent("Iterraction 2","New Zealand - Finance -AR Clerk",40));
+		      chartComponentList.add(new ChartComponent("Iterraction 3","New Zealand - Finance -AR Clerk",30));
+		      chartComponentList.add(new ChartComponent("Iterraction 4","New Zealand - Finance -AR Clerk",20));
 		      
-		      chartComponentList.add(new ChartComponent("Iterraction 1","New Zealand - Finance -AP Clerk",1));
-		      chartComponentList.add(new ChartComponent("Iterraction 2","New Zealand - Finance -AP Clerk",4));
-		      chartComponentList.add(new ChartComponent("Iterraction 3","New Zealand - Finance -AP Clerk",3));
-		      chartComponentList.add(new ChartComponent("Iterraction 4","New Zealand - Finance -AP Clerk",2));
+		      chartComponentList.add(new ChartComponent("Iterraction 1","New Zealand - Finance -AP Clerk",20));
+		      chartComponentList.add(new ChartComponent("Iterraction 2","New Zealand - Finance -AP Clerk",30));
+		      chartComponentList.add(new ChartComponent("Iterraction 3","New Zealand - Finance -AP Clerk",30));
+		      chartComponentList.add(new ChartComponent("Iterraction 4","New Zealand - Finance -AP Clerk",20));
 		      
-		      chartComponentList.add(new ChartComponent("Iterraction 1","New Zealand - Finance",9));
-		      chartComponentList.add(new ChartComponent("Iterraction 2","New Zealand - Finance",4));
-		      chartComponentList.add(new ChartComponent("Iterraction 3","New Zealand - Finance",6));
-		      chartComponentList.add(new ChartComponent("Iterraction 4","New Zealand - Finance",2));
+		      chartComponentList.add(new ChartComponent("Iterraction 1","New Zealand - Finance",40));
+		      chartComponentList.add(new ChartComponent("Iterraction 2","New Zealand - Finance",20));
+		      chartComponentList.add(new ChartComponent("Iterraction 3","New Zealand - Finance",20));
+		      chartComponentList.add(new ChartComponent("Iterraction 4","New Zealand - Finance",20));
 		      
-		      chartComponentList.add(new ChartComponent("Iterraction 1","Vietname - Finance",5));
-		      chartComponentList.add(new ChartComponent("Iterraction 2","Vietname - Finance",6));
-		      chartComponentList.add(new ChartComponent("Iterraction 3","Vietname - Finance",7));
-		      chartComponentList.add(new ChartComponent("Iterraction 4","Vietname - Finance",3));
+		      chartComponentList.add(new ChartComponent("Iterraction 1","Vietname - Finance",10));
+		      chartComponentList.add(new ChartComponent("Iterraction 2","Vietname - Finance",40));
+		      chartComponentList.add(new ChartComponent("Iterraction 3","Vietname - Finance",30));
+		      chartComponentList.add(new ChartComponent("Iterraction 4","Vietname - Finance",20));
 		      
 		      
 		      return chartComponentList;
@@ -114,7 +114,7 @@ public class MyJasperFactory {
 	 */
 	public static void main(String[] args) 
 	{
-		MyJasperFactory imageapp=new MyJasperFactory("src/jasper/BarChart.jrxml");
+		StackedPercentBar imageapp=new StackedPercentBar("src/jasper/StackedPercentBar.jrxml");
 		try{
 		imageapp.compileReport();
 		imageapp.fill();
@@ -136,7 +136,7 @@ public class MyJasperFactory {
 	 */
 	public void test() throws JRException
 	{
-		saveToImg();
+		//saveToImg(0);
 		pdf();
 		/*xmlEmbed();
 		xml();
@@ -171,11 +171,11 @@ public class MyJasperFactory {
 	 * vominhtung
 	 */
 	 
-	public void saveToImg() throws JRException
+	public void saveToImg(int page) throws JRException
 	{
 		System.out.println("PrintImg are called");
 		long start = System.currentTimeMillis();
-		Image image=JasperPrintManager.printPageToImage(this.jprintSrcFile,0, 1);
+		Image image=JasperPrintManager.printPageToImage(this.jprintSrcFile,page, 1);
 		
 		System.err.println("PrintImging time : " + (System.currentTimeMillis() - start));
 		BufferedImage bufferedImage = (BufferedImage) image;
