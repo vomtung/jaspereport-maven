@@ -40,8 +40,7 @@ public class BarChartCustomizer implements JRChartCustomizer
 	public void customize(JFreeChart chart, JRChart jasperChart)
 	{
 		BarRenderer renderer = (BarRenderer) chart.getCategoryPlot().getRenderer();
-		plot.getRenderer().setBaseItemLabelsVisible(boolean visible);
-		renderer.setSeriesPaint(0, Color.green);
+		renderer.setSeriesPaint(0, Color.BLACK);
 		renderer.setSeriesPaint(1, Color.orange);
 		renderer.setBaseItemLabelsVisible(true);
 	}
