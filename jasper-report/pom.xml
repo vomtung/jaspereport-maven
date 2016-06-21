@@ -12,7 +12,7 @@
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jasperreports.version>5.5.1</jasperreports.version>
+    <jasperreports.version>6.3.0</jasperreports.version>
   	<groovy.version>1.8.6</groovy.version>
   </properties>
   
