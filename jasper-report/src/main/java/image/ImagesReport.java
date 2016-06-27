@@ -122,6 +122,7 @@ public class ImagesReport {
 		parameters.put("logo", image );
 		this.jprintSrcFile=JasperFillManager.fillReportToFile("src/imagesreports/ImagesReport.jasper",
 				parameters, beanColDataSource);
+		System.out.println("Fill Report success:"+this.jprintSrcFile);
 	}
 
 	public void compile() throws JRException {
@@ -215,11 +216,10 @@ public class ImagesReport {
 	/**
 	 *
 	 */
-	public void pdf() throws JRException {
-		long start = System.currentTimeMillis();
-		JasperExportManager.exportReportToPdfFile(this.jprintSrcFile);
-		System.err.println("PDF creation time : "
-				+ (System.currentTimeMillis() - start));
+	public String pdf() throws JRException {
+		String name = JasperExportManager.exportReportToPdfFile(this.jprintSrcFile);
+		System.out.println("print to PDF success:"+name);
+		return name;
 	}
 
 	/**
